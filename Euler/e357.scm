@@ -1,0 +1,1 @@
+(time(letrec([f (λ (s c i)(if (eq? c i) s (f (+ s ((λ (n) (if(andmap prime? (map (λ (d) (+ (/ n d) d))(divisors n))) n 0)) i)) c (add1 i))))])(f 0 100000000 1)))

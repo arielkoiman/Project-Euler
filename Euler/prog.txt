@@ -1,0 +1,10 @@
+n => 97902787
+s => 1672358241861
+c => 100000000
+i => 97902787
+f => #<procedure:f>
+
+#lang racket
+(require math)
+
+(time(letrec([f (λ (s c i) (if (eq? c i) s (f (+ s ((λ (n) (if(andmap prime? (map (λ (d) (+ (/ n d) d)) (divisors n))) n 0)) i)) c (add1 i))))])(f 0 100000000 1)))
